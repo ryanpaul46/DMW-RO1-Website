@@ -25,7 +25,7 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src="/images/DMW RO1.jpg"
+              src="/DMW-RO1-Website/images/DMW RO1.jpg"
               alt="DMW Services"
             />
             <Carousel.Caption>
@@ -36,7 +36,7 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src="/images/DMW PACD.jpg"
+              src="/DMW-RO1-Website/images/DMW PACD.jpg"
               alt="OFW Support"
             />
             <Carousel.Caption>
@@ -47,7 +47,7 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src="/images/DMW WORK.jpg"
+              src="/DMW-RO1-Website/images/DMW WORK.jpg"
               alt="Welfare Programs"
             />
             <Carousel.Caption>

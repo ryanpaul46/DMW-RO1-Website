@@ -123,7 +123,7 @@ const About = () => {
               <div className="text-center">
                 <p>Organizational chart will be displayed here.</p>
                 <div className="org-chart-placeholder">
-                  <img src="/images/org-chart.png" alt="Organizational Chart" className="img-fluid" style={{maxHeight: '400px'}} />
+                  <img src="/DMW-RO1-Website/images/org-chart.png" alt="Organizational Chart" className="img-fluid" style={{maxHeight: '400px'}} />
                 </div>
               </div>
             </Card.Body>
