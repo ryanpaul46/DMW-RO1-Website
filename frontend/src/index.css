@@ -246,6 +246,53 @@ main {
   margin-top: 1rem;
 }
 
+/* About page animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.about .card {
+  animation: fadeInUp 0.6s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.about h1 {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.about .nav-tabs {
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.about .card:nth-child(1) { animation-delay: 0.1s; }
+.about .card:nth-child(2) { animation-delay: 0.2s; }
+.about .card:nth-child(3) { animation-delay: 0.3s; }
+.about .card:nth-child(4) { animation-delay: 0.4s; }
+.about .card:nth-child(5) { animation-delay: 0.5s; }
+
 /* Footer */
 .footer {
   background: #374151;
