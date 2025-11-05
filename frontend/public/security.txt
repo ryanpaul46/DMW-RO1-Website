@@ -1,0 +1,4 @@
+Contact: mailto:security@dmw.gov.ph
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en, fil
+Canonical: https://your-domain.github.io/.well-known/security.txt
