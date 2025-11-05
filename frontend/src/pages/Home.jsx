@@ -25,7 +25,7 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src="/public/images/DMW RO1.jpg"
+              src="/images/DMW RO1.jpg"
               alt="DMW Services"
             />
             <Carousel.Caption>
@@ -36,7 +36,7 @@ const Home = () => {
           <Carousel.Item>
             <img
               className="d-block w-100 carousel-img"
-              src="/public/images/DMW PACD.jpg"
+              src="/images/DMW PACD.jpg"
               alt="OFW Support"
             />
             <Carousel.Caption>
