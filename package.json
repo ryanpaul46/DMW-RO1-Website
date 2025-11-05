@@ -2,14 +2,14 @@
   "name": "dmw-ro1-website",
   "version": "1.0.0",
   "description": "DMW Regional Office 1 Website - Full Stack Application",
-  "homepage": "https://github.com/ryanpaul46/DMW-RO1-Website",
+  
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && npm run dev",
     "client": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "predeploy": "npm --prefix frontend run build",
+    "deploy": "gh-pages -d frontend/dist",
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install"
   },
   "devDependencies": {
