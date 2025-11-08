@@ -10,7 +10,7 @@ import './App.css'
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.PROD ? '/DMW-RO1-Website' : '/'}>
       <div className="App">
         <Header />
         <main>

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
 import { getAnnouncements } from '../services/api'
-import dmwRo1Image from '/DMW-RO1-Website/images/DMW RO1.jpg'
-import dmwPacdImage from '/DMW-RO1-Website/images/DMW PACD.jpg'
-import dmwWorkImage from '/DMW-RO1-Website/images/DMW WORK.jpg'
+import dmwRo1Image from '/images/DMW RO1.jpg'
+import dmwPacdImage from '/images/DMW PACD.jpg'
+import dmwWorkImage from '/images/DMW WORK.jpg'
 
 const Home = () => {
   const [announcements, setAnnouncements] = useState([])
