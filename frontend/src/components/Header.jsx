@@ -15,9 +15,9 @@ const Header = () => {
             <small className="text-light opacity-75"><em>"Tahanan ng OFW sa Norte"</em></small>
           </div>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="ms-auto text-center">
             <Nav.Link as={Link} to="/" className="nav-item-custom">Home</Nav.Link>
             <Nav.Link as={Link} to="/about" className="nav-item-custom">About</Nav.Link>
             <Nav.Link as={Link} to="/services" className="nav-item-custom">Services</Nav.Link>
