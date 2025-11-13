@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Navbar, Nav, Container } from 'react-bootstrap'
-import dmwLogo from '/images/DMW-logo.svg'
+import dmwLogo from '../assets/images/DMW-logo.svg'
 
 const Header = () => {
   return (
