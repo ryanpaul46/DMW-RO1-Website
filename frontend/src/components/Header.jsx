@@ -15,27 +15,32 @@ const Header = () => {
   return (
     <Navbar bg="primary" variant="dark" expand="lg" className="custom-navbar">
       <Container>
-        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-          <img src={dmwLogo} alt="DMW Logo" className="logo-img me-3" />
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center flex-grow-1">
+          <img src={dmwLogo} alt="DMW Logo" className="logo-img me-2 me-md-3" />
           <div className="logo-text">
-            <div className="fw-bold fs-3">Repuplic of the Philippines</div>
-            <small className="text-light opacity-75">Department of Migrant Workers - Regional Office 1</small>
-            <br />
-            <small className="text-light opacity-75"><em>"Tahanan ng OFW sa Norte"</em></small>
+            <div className="fw-bold fs-6 fs-md-5 fs-lg-4">Republic of the Philippines</div>
+            <small className="text-light opacity-75 d-block">Department of Migrant Workers - Regional Office 1</small>
+            <small className="text-light opacity-75 d-none d-md-block"><em>"Tahanan ng OFW sa Norte"</em></small>
           </div>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
-        <Navbar.Collapse id="basic-navbar-nav" className="d-flex flex-column align-items-end">
-          <Nav className="text-end">
+        <div className="d-flex align-items-center">
+          <div className="navbar-time text-light text-end me-3 d-none d-lg-block">
+            <small>{currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</small>
+            <br />
+            <small>{currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</small>
+          </div>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
+        </div>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto text-center text-lg-end">
             <Nav.Link as={Link} to="/" className="nav-item-custom">Home</Nav.Link>
             <Nav.Link as={Link} to="/about" className="nav-item-custom">About</Nav.Link>
             <Nav.Link as={Link} to="/services" className="nav-item-custom">Services</Nav.Link>
             <Nav.Link as={Link} to="/news" className="nav-item-custom">News</Nav.Link>
             <Nav.Link as={Link} to="/contact" className="nav-item-custom">Contact</Nav.Link>
           </Nav>
-          <div className="navbar-time text-light text-end mt-2">
-            <div>Philippine Standard Time:</div>
-            <div>{currentTime.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}, {currentTime.toLocaleTimeString('en-US')}</div>
+          <div className="navbar-time text-light text-center mt-3 d-lg-none">
+            <small>PST: {currentTime.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} | {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</small>
           </div>
         </Navbar.Collapse>
       </Container>

@@ -351,13 +351,35 @@ main {
     padding: 0 15px;
   }
 
+  .custom-navbar {
+    padding: 0.5rem 0;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+
   .logo-text {
-    display: none;
+    font-size: 0.85rem;
   }
   
   .nav-item-custom {
-    margin: 0.2rem 0;
+    margin: 0.3rem 0;
+    padding: 0.75rem 1rem !important;
     text-align: center;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-collapse {
+    margin-top: 1rem;
+  }
+
+  .navbar-time {
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
   }
 
   .carousel-caption h1 {
