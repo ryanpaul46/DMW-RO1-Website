@@ -7,6 +7,8 @@ import dmwWorkImage from '../assets/images/DMW WORK.jpg'
 
 const Home = () => {
   const [announcements, setAnnouncements] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     fetchAnnouncements()
@@ -14,10 +16,15 @@ const Home = () => {
 
   const fetchAnnouncements = async () => {
     try {
+      setLoading(true)
       const data = await getAnnouncements()
       setAnnouncements(data)
+      setError(null)
     } catch (error) {
       console.error('Error fetching announcements:', error)
+      setError('Failed to load announcements. Please try again later.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -65,13 +72,21 @@ const Home = () => {
         <div className="container">
           <h2>Latest Announcements</h2>
           <div className="announcements-grid">
-            {announcements.map(announcement => (
-              <div key={announcement.id} className="announcement-card">
-                <h3>{announcement.title}</h3>
-                <p>{announcement.content}</p>
-                <small>{new Date(announcement.date).toLocaleDateString()}</small>
-              </div>
-            ))}
+            {loading ? (
+              <div className="text-center">Loading announcements...</div>
+            ) : error ? (
+              <div className="text-center text-danger">{error}</div>
+            ) : announcements.length > 0 ? (
+              announcements.map(announcement => (
+                <div key={announcement.id} className="announcement-card">
+                  <h3>{announcement.title}</h3>
+                  <p>{announcement.content}</p>
+                  <small>{new Date(announcement.date).toLocaleDateString()}</small>
+                </div>
+              ))
+            ) : (
+              <div className="text-center">No announcements available.</div>
+            )}
           </div>
           
           <div className="facebook-feed mt-5">
