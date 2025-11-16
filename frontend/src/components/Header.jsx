@@ -23,14 +23,7 @@ const Header = () => {
             <small className="text-light opacity-75 d-none d-md-block"><em>"Tahanan ng OFW sa Norte"</em></small>
           </div>
         </Navbar.Brand>
-        <div className="d-flex align-items-center">
-          <div className="navbar-time text-light text-end me-3 d-none d-lg-block">
-            <small>{currentTime.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</small>
-            <br />
-            <small>{currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</small>
-          </div>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
-        </div>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto text-center text-lg-end">
             <Nav.Link as={Link} to="/" className="nav-item-custom">Home</Nav.Link>
@@ -39,8 +32,8 @@ const Header = () => {
             <Nav.Link as={Link} to="/news" className="nav-item-custom">News</Nav.Link>
             <Nav.Link as={Link} to="/contact" className="nav-item-custom">Contact</Nav.Link>
           </Nav>
-          <div className="navbar-time text-light text-center mt-3 d-lg-none">
-            <small>PST: {currentTime.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} | {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</small>
+          <div className="navbar-time-bottom">
+            <small>{currentTime.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} at {currentTime.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' })} GMT+8</small>
           </div>
         </Navbar.Collapse>
       </Container>

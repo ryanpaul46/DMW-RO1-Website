@@ -1,28 +1,37 @@
 import { useState, useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
-import { getAnnouncements } from '../services/api'
+import { getAnnouncements, getNews } from '../services/api'
+import { mockAnnouncements, mockNews } from '../data/mockData'
 import dmwRo1Image from '../assets/images/DMW RO1.jpg'
 import dmwPacdImage from '../assets/images/DMW PACD.jpg'
 import dmwWorkImage from '../assets/images/DMW WORK.jpg'
 
 const Home = () => {
   const [announcements, setAnnouncements] = useState([])
+  const [news, setNews] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetchAnnouncements()
+    fetchData()
   }, [])
 
-  const fetchAnnouncements = async () => {
+  const fetchData = async () => {
     try {
       setLoading(true)
-      const data = await getAnnouncements()
-      setAnnouncements(data)
+      const [announcementsData, newsData] = await Promise.all([
+        getAnnouncements(),
+        getNews()
+      ])
+      setAnnouncements(announcementsData)
+      setNews(newsData.filter(article => article.featured).slice(0, 3))
       setError(null)
     } catch (error) {
-      console.error('Error fetching announcements:', error)
-      setError('Failed to load announcements. Please try again later.')
+      console.error('Error fetching data:', error)
+      // Use mock data as fallback
+      setAnnouncements(mockAnnouncements)
+      setNews(mockNews.filter(article => article.featured).slice(0, 3))
+      setError(null)
     } finally {
       setLoading(false)
     }
@@ -89,6 +98,34 @@ const Home = () => {
             )}
           </div>
           
+          <div className="latest-news mt-5">
+            <h2>Latest News</h2>
+            <div className="news-grid">
+              {loading ? (
+                <div className="text-center">Loading news...</div>
+              ) : error ? (
+                <div className="text-center text-danger">{error}</div>
+              ) : news.length > 0 ? (
+                news.map(article => (
+                  <div key={article.id} className="news-card">
+                    <div className="news-image-placeholder">
+                      <span>📰</span>
+                    </div>
+                    <div className="news-category">{article.category}</div>
+                    <h3>{article.title}</h3>
+                    <p className="news-summary">{article.summary}</p>
+                    <div className="news-meta">
+                      <small>By {article.author}</small>
+                      <small>{new Date(article.date).toLocaleDateString()}</small>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center">No news available.</div>
+              )}
+            </div>
+          </div>
+
           <div className="facebook-feed mt-5">
             <h3 className="text-center mb-4">Follow Our Facebook Page</h3>
             <div className="text-center">

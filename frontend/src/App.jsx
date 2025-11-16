@@ -10,7 +10,13 @@ import './App.css'
 
 function App() {
   return (
-    <Router basename={import.meta.env.PROD ? '/DMW-RO1-Website' : '/'}>
+    <Router 
+      basename={import.meta.env.PROD ? '/DMW-RO1-Website' : '/'}
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true
+      }}
+    >
       <div className="App">
         <Header />
         <main>
